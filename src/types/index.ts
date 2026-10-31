@@ -1,0 +1,14 @@
+export const ROLE_NAMES: Record<string,string> = {institution:'Institution Administrator',scrutiny:'Scrutiny Officer',bureau:'Bureau Officer',authority:'Approving Authority',admin:'System Administrator'};
+export const STATUSES = ['Draft','Submitted','Under Scrutiny','Clarification Required','Under Bureau Review','Pending Final Approval','Approved','Rejected'] as const;
+export const DOC_CATEGORIES = ['Institution registration','Land & building certificate','Faculty details','Laboratory inventory','Financial statement','Affiliation certificate'];
+export type User = {id:string;name:string;email:string;roleId:string;workspace:string;active:boolean;bureauId?:string|null};
+export type Institution = {id:string;name:string;code:string;state:string;city:string;type:string;email:string;established:number;ownerId:string|null};
+export type Application = {id:string;institutionId:string;type:string;year:string;status:string;deadline:string;intake:number;program:string;createdAt:string;updatedAt:string;version:number;assignedTo:string|null};
+export type DocumentRecord = {id:string;applicationId:string;category:string;name:string;size:number;status:string;comment:string;synthetic:boolean;uploadedAt:string};
+export type Compliance = {id:string;institutionId:string;requirementId:string;score:number;notes:string};
+export type Requirement = {id:string;category:string;description:string;threshold:number;weight:number};
+export type Notice = {id:string;applicationId:string|null;title:string;message:string;priority:string;createdAt:string;read:boolean};
+export type Audit = {id:string;userId:string|null;action:string;entityId:string;details:string;createdAt:string};
+export type History = {id:string;applicationId:string;userId:string;fromStatus:string;toStatus:string;comment:string;createdAt:string};
+export type Data = {user:User|null;institutions:Institution[];applications:Application[];documents:DocumentRecord[];compliance:Compliance[];requirements:Requirement[];notifications:Notice[];audits:Audit[];history:History[];users:User[];bureaus:{id:string;name:string;region:string}[];escalations:{id:string;applicationId:string;reason:string;status:string;createdAt:string}[];settings:{slaDays:number;warningDays:number;complianceThreshold:number};demo:boolean};
+export type Insight = {applicationId:string;missing:string[];score:number;violations:number;risk:string;priority:string;estimatedDelayDays:number;reasons:string[];model:string;modelMetrics?:{syntheticHoldoutMAEDays:number;holdoutSamples:number;limitation:string};featureImportance?:Record<string,number>};

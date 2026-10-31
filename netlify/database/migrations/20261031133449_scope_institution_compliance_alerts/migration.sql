@@ -1,0 +1,2 @@
+ALTER TABLE "notifications" ADD COLUMN "institution_id" text;--> statement-breakpoint
+ALTER TABLE "notifications" ADD CONSTRAINT "notifications_institution_id_institutions_id_fkey" FOREIGN KEY ("institution_id") REFERENCES "institutions"("id");
