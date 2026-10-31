@@ -2,6 +2,12 @@
 
 An independent Smart India Hackathon 2026 demonstration of institution approval workflows, compliance monitoring, document verification, explainable assistance, and alert management. All seeded institutions, people, documents, and decisions are fictional. This application has no official AICTE integration and does not perform regulatory verification.
 
+## Live Website
+
+[Click Here to Visit AICTE Approval360](https://aicte-approval-system.netlify.app/)
+
+---
+
 ## Architecture
 
 The React 18 + TypeScript + Vite application uses React Router, Tailwind CSS, Lucide, Recharts, and Axios. The hosted data API uses Netlify Functions, managed PostgreSQL through `@netlify/database` and Drizzle, and private Netlify Blobs for PDFs. Netlify Identity handles password hashing, email confirmation, JWT sessions, and real account authentication.
